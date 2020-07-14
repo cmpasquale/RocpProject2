@@ -7,6 +7,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ROCPService } from './services/rocp.service';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -18,7 +19,11 @@ import { ROCPService } from './services/rocp.service';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      { path: '**', redirectTo: 'profile', component: ProfileComponent  }
+
+    ])
   ],
   providers: [ROCPService],
   bootstrap: [AppComponent]
