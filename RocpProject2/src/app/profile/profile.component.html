@@ -1,0 +1,12 @@
+
+<div>
+    <button (click)="getTodosEc2()">Get todos to console</button>
+</div>
+<div>
+    <form [formGroup]="todos">
+        <input type="text" formControlName="title">
+        <button (click)="postTodoEc2(todos)">Send todo</button>
+
+
+    </form>
+</div>

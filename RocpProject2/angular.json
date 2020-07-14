@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "RocpProject2"
+    }
+  },
+  "defaultProject": "RocpProject2",
+  "cli": {
+    "analytics": "f6c8b3e0-2569-4568-a413-e1f4460c1418"
+  }
 }
