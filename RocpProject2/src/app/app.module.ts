@@ -1,13 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
-
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { ROCPService } from './services/rocp.service';
-import { RouterModule } from '@angular/router';
+
 
 
 @NgModule({
@@ -21,7 +20,7 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '**', redirectTo: 'profile', component: ProfileComponent  }
+      { path: '**',  component: ProfileComponent  }
 
     ])
   ],
