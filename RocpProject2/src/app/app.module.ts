@@ -6,13 +6,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ROCPService } from './services/rocp.service';
-
-
+import { DeleteComponent } from './delete/delete.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProfileComponent
+    ProfileComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +20,8 @@ import { ROCPService } from './services/rocp.service';
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '**',  component: ProfileComponent  }
+      { path: '**', component: ProfileComponent },
+      { path: 'delete', component: DeleteComponent }
 
     ])
   ],

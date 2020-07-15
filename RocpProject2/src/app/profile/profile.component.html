@@ -1,22 +1,20 @@
 <p>{{currentHero}}</p>
 <div>
-    <button (click) = "getTodosEc2()">Get Todos to Console</button>
+    <button type="button" class="btn btn-primary"(click) = "getTodosEc2()">Get Todos to Console</button>
 </div>
 
 <div>
     <input type = "text" [(ngModel)] = 'todosId'> 
-    <button (click)='getTodoEc2ById(todosId)'>Get Todos By ID</button>
+    <button type="button" class="btn btn-primary"(click)='getTodoEc2ById(todosId)'>Get Todos By ID</button>
 
 </div>
-
+<br>
 
 <div>
 
     <form [formGroup] = "todos">
         <input type = "text" formControlName ="title">
-        <button (click)='postTodoEc2(todos)'>Send Todo</button>
-
-
+        <button type="button" class="btn btn-primary" (click)='postTodoEc2(todos)'>Send Todo</button>
     </form>
 </div>
 

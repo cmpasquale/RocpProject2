@@ -8,8 +8,7 @@ import {FormGroup, FormControl} from '@angular/forms';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent implements OnInit 
-{
+export class ProfileComponent implements OnInit{
 
   attrtodosId = '';
 
@@ -19,7 +18,6 @@ export class ProfileComponent implements OnInit
 
   set todosId(temp: string) {
       this.attrtodosId = temp;
-     
   }
 
   currentHero = 'No Hero';
@@ -30,8 +28,7 @@ export class ProfileComponent implements OnInit
     });
 
     todosById = new FormGroup({
-      titleById: new FormControl('')})
-        
+      titleById: new FormControl('')});
 
   constructor(private route: ActivatedRoute, private rocp: ROCPService) { }
 
@@ -40,11 +37,11 @@ export class ProfileComponent implements OnInit
     console.log(form);
     console.log(todoSub);
     this.rocp.postTodo(form).subscribe(
-      response=> {
+      response => {
         console.log('success');
 
       }
-    )
+    );
 
   }
 
@@ -53,18 +50,17 @@ export class ProfileComponent implements OnInit
     this.rocp.getTodos().subscribe(
       response => {
         console.log(response);
-       
       }
-    )
+    );
   }
 
-  
   getTodoEc2ById(todosId: string) {
     console.log(todosId);
     this.rocp.getTodosByID(todosId).subscribe(
-     response => {
+      response => {
         console.log(response);
-        })
+      }
+    );
       }
 
   ngOnInit(): void {
