@@ -11,7 +11,7 @@ import {FormGroup, FormControl} from '@angular/forms';
 export class GetComponent implements OnInit{
   
   attrtodosId = '';
-
+  data:any[];
   get todosId(): string {
     return this.attrtodosId;
   }
@@ -20,48 +20,32 @@ export class GetComponent implements OnInit{
       this.attrtodosId = temp;
   }
 
-  currentHero = 'No Hero';
-  // I am making an object version of my form that I WILL pair with the form I will create on the HTML page.
-  //This is using the reactive Forms module
-  todos = new FormGroup({
-    title: new FormControl('')
-    });
+ 
 
-    todosById = new FormGroup({
-      titleById: new FormControl('')});
 
   constructor(private route: ActivatedRoute, private rocp: ROCPService) { }
 
-  postTodoEc2(todoSub: FormGroup) {
-    let form = JSON.stringify(todoSub.value);
-    console.log(form);
-    console.log(todoSub);
-    this.rocp.postTodo(form).subscribe(
-      response => {
-        console.log('success');
+  
+ 
 
-      }
-    );
-
-  }
-  data:any;
 
   getTodosEc2() {
+   
     this.rocp.getTodos().subscribe(
       response => {
-        console.log(response);
+        
+        this.data = response;
+        console.log(this.data.length);
+        
       }
     );
   }
 
   getTodoEc2ById(todosId: string) {
-    console.log(todosId);
-    
-  this.rocp.getTodosByID(todosId).subscribe(
-      response => {
-        console.log(response);
-        this.data = response;
-       
+      this.rocp.getTodosByID(todosId).subscribe(
+      response1 => {
+       this.data = response1;
+       console.log(this.data);
       }
     );
       }

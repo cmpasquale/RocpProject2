@@ -1,6 +1,6 @@
 
 <div>
-    <button type="button" class="btn btn-primary"(click) = "getTodosEc2()">Get Todos to Console</button>
+    <button type="button" class="btn btn-primary"(click) = "getTodosEc2()">Get Todos</button>
 </div>
 <br>
 <div>
@@ -8,15 +8,10 @@
     <button type="button" class="btn btn-primary"(click)='getTodoEc2ById(todosId)'>Get Todos By ID</button>
 </div>
 <br>
-<div>
-    <form [formGroup] = "todos">
-        <input type = "text" formControlName ="title">
-        <button type="button" class="btn btn-primary" (click)='postTodoEc2(todos)'>Send Todo</button>
-    </form>
-</div>
+
 <br>
 <div class = 'table-responsive'>
-    <table class ='table'>
+    <table class ='table' *ngIf="data?.length">
         <thead>
             <tr>
                 <th>ID</th>
@@ -26,14 +21,35 @@
             </tr>
         </thead>
         <tbody>
-            <tr> 
-                <td> {{ data.id }}  </td>
-                <td> {{ data.title }} </td>
-                <td> {{ data.createdOn}}</td>
-                <td> {{ data.completed}}</td>
+             <tr *ngFor='let temp of data'>
+                <td> {{ temp.id}}  </td>
+                <td> {{ temp.title }} </td>
+                <td> {{ temp.createdOn}}</td>
+                <td> {{ temp.completed}}</td>
             </tr>
             
-             </tbody>
+        </tbody>
     </table>
+            <table class ='table' *ngIf="!data?.length">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>TITLE</th>
+                    <th>CREATED ON</th>
+                    <th>COMPLETED</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr >
+               <td> {{ data.id}}  </td>
+               <td> {{ data.title }} </td>
+               <td> {{ data.createdOn}}</td>
+               <td> {{ data.completed}}</td>
+           </tr>
+           </tbody>
+       
+            </table>
 </div>
+
+
 
