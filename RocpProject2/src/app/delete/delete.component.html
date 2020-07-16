@@ -1,1 +1,6 @@
-<p>delete works!</p>
+<div>
+    <form [formGroup]="todosDelete">
+        <input type="text" formControlName="id">
+        <button (click)='deleteTodo(todosDelete)'>Delete Todos </button>
+    </form>
+</div>
