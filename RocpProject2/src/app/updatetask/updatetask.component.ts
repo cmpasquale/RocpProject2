@@ -11,9 +11,9 @@ export class UpdatetaskComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private rocp: ROCPService) { }
 
-  todosUpdate =new FormGroup({
-    id:new FormControl(''),
-    title:new FormControl('')
+  todosUpdate = new FormGroup({
+    id: new FormControl(''),
+    title: new FormControl('')
   });
 
 
