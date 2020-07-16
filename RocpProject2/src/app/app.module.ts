@@ -9,6 +9,7 @@ import { ROCPService } from './services/rocp.service';
 import { DeleteComponent } from './delete/delete.component';
 import { UpdatetaskComponent} from './updatetask/updatetask.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { CreateComponent } from './create/create.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
     GetComponent,
     DeleteComponent,
     UpdatetaskComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +27,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
     ReactiveFormsModule,
     RouterModule.forRoot([      
       { path: 'getbyId', component: GetComponent},
+      {path: 'create', component: CreateComponent},
       { path: 'delete', component: DeleteComponent },
       { path: 'update', component: UpdatetaskComponent},
       { path: '**', component: WelcomeComponent }
