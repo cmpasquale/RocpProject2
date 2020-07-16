@@ -9,7 +9,7 @@ import {FormGroup, FormControl} from '@angular/forms';
   styleUrls: ['./get.component.css']
 })
 export class GetComponent implements OnInit{
-
+  
   attrtodosId = '';
 
   get todosId(): string {
@@ -44,7 +44,7 @@ export class GetComponent implements OnInit{
     );
 
   }
-
+  data:any;
 
   getTodosEc2() {
     this.rocp.getTodos().subscribe(
@@ -56,15 +56,18 @@ export class GetComponent implements OnInit{
 
   getTodoEc2ById(todosId: string) {
     console.log(todosId);
-    this.rocp.getTodosByID(todosId).subscribe(
+    
+  this.rocp.getTodosByID(todosId).subscribe(
       response => {
         console.log(response);
+        this.data = response;
+       
       }
     );
       }
 
   ngOnInit(): void {
-    this.currentHero = this.route.snapshot.paramMap.get('heroname');
+    
   }
 
 }

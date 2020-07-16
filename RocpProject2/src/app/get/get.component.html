@@ -1,57 +1,39 @@
-<p>{{currentHero}}</p>
+
 <div>
     <button type="button" class="btn btn-primary"(click) = "getTodosEc2()">Get Todos to Console</button>
 </div>
-
+<br>
 <div>
     <input type = "text" [(ngModel)] = 'todosId'> 
     <button type="button" class="btn btn-primary"(click)='getTodoEc2ById(todosId)'>Get Todos By ID</button>
-
 </div>
 <br>
-
 <div>
-
     <form [formGroup] = "todos">
         <input type = "text" formControlName ="title">
         <button type="button" class="btn btn-primary" (click)='postTodoEc2(todos)'>Send Todo</button>
     </form>
 </div>
-
+<br>
 <div class = 'table-responsive'>
     <table class ='table'>
         <thead>
             <tr>
-                   <th>ID</th>
+                <th>ID</th>
                 <th>TITLE</th>
                 <th>CREATED ON</th>
-                <th>COMPLETED ON</th>
+                <th>COMPLETED</th>
             </tr>
         </thead>
         <tbody>
-            <!--Directives, are custom markers on a DOM element (attribute, element name, or CSS class) 
-            that tell Angualr to attach specified behavior to the Dom Element, or even transfor that DOM and
-            its childern.
-            Below is a structural directive, it can alter the entire structure DOM and its elements
-            some common examples of Structural Directives are:
-                *ngFor, *ngIf, *ngSwitch, *ngDefault, *ngIfElse
-             <tr *ngFor ='let temp of filteredSuperHeroes'>
-                <td>
-                    <!-- [] is the syntax for property binding, itsis a one-way binding where
-                    we project values from TS on to the attributes of an html element
-                   // <img *ngIf='showImage' [src] = 'temp.image' width = '100' margin = '2'/>
-                </td>
-                //<td><a [routerLink]="['/profile', temp.name]">{{temp.name}}</a></td>
-               // <td>{{temp.ability}}</td>
-                <!-- Pipes, Pipes transform the data before it is displayed in interpolation
-                    they use the {{target | pipeType }} syntax, there are predefined pipes of uppercase, lowercase, format
-                    currency, etc
-                //<td>{{temp.organization | uppercase}}</td> 
-                </tr>
-            -->
+            <tr> 
+                <td> {{ data.id }}  </td>
+                <td> {{ data.title }} </td>
+                <td> {{ data.createdOn}}</td>
+                <td> {{ data.completed}}</td>
+            </tr>
             
-        </tbody>
+             </tbody>
     </table>
-
 </div>
 
