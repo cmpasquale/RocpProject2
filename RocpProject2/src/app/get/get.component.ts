@@ -4,11 +4,11 @@ import {ROCPService} from '../services/rocp.service';
 import {FormGroup, FormControl} from '@angular/forms';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  selector: 'app-get',
+  templateUrl: './get.component.html',
+  styleUrls: ['./get.component.css']
 })
-export class ProfileComponent implements OnInit{
+export class GetComponent implements OnInit{
 
   attrtodosId = '';
 
