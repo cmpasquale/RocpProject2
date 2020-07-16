@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
-import { ProfileComponent } from './profile/profile.component';
+import { GetComponent } from './get/get.component';
 import { ROCPService } from './services/rocp.service';
 import { DeleteComponent } from './delete/delete.component';
 import { UpdatetaskComponent} from './updatetask/updatetask.component';
@@ -13,7 +13,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ProfileComponent,
+    GetComponent,
     DeleteComponent,
     UpdatetaskComponent,
     WelcomeComponent
@@ -24,7 +24,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([      
-      { path: 'getbyId',component: ProfileComponent},
+      { path: 'getbyId', component: GetComponent},
       { path: 'delete', component: DeleteComponent },
       { path: 'update', component: UpdatetaskComponent},
       { path: '**', component: WelcomeComponent }
