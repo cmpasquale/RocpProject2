@@ -7,21 +7,28 @@ import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ROCPService } from './services/rocp.service';
 import { DeleteComponent } from './delete/delete.component';
+import { UpdatetaskComponent} from './updatetask/updatetask.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileComponent,
-    DeleteComponent
+    DeleteComponent,
+    UpdatetaskComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([
-      { path: '**', component: ProfileComponent },
-      { path: 'delete', component: DeleteComponent }
+    RouterModule.forRoot([      
+      { path: 'getbyId',component: ProfileComponent},
+      { path: 'delete', component: DeleteComponent },
+      { path: 'update', component: UpdatetaskComponent},
+      { path: '**', component: WelcomeComponent }
+      
 
     ])
   ],

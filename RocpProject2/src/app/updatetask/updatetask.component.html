@@ -1,0 +1,8 @@
+
+<div>
+    <form [formGroup]="todosUpdate">
+        <input type = "text" formControlName="id"> 
+        <input type= "text" formControlName="title">
+    <button (click)='putTodosEc2(todosUpdate)'>Update Todos </button>
+    </form>
+</div>
