@@ -39,4 +39,16 @@ getTodosByID(todoId:string): Observable<string[]> {
 };
 return this.httpCli.get<string[]>('http://ec2-18-217-229-99.us-east-2.compute.amazonaws.com:8080/todos/' + todoId, httpHead);
 }
+ 
+/* Update task by Id */
+putTodos(todoUpdate): Observable<string> {
+  const httpHead ={
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-origin': '*'
+    })
+  };
+  return this.httpCli.put<string>('http://ec2-18-217-229-99.us-east-2.compute.amazonaws.com:8080/todos/ ', todoUpdate ,httpHead);
+}
+
 }
