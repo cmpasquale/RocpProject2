@@ -1,6 +1,8 @@
+
 <div>
-    <form [formGroup]="todosDelete">
-        <input type="text" formControlName="id">
-        <button (click)='deleteTodo(todosDelete)'>Delete Todos </button>
-    </form>
+    <input type="text" [(ngModel)]='todosId'>
+    <button type="button" class="btn btn-primary" (click)='deleteTodoEc2ById(todosId)'>Delete Todos By ID</button>
 </div>
+<br>
+
+

@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ROCPService {
+  
 
   constructor(private httpCli: HttpClient) { }
 
@@ -51,15 +52,17 @@ export class ROCPService {
     return this.httpCli.put<string>('http://ec2-18-217-229-99.us-east-2.compute.amazonaws.com:8080/todos/ ', todoUpdate, httpHead);
   }
   // Delete to do by Id
-  deleteTodos(todoDelete): Observable<any> {
+  deleteTodos(todoId: string): Observable<any> {
     const httpHead = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Access-Control-Allow-origin': '*',
-        todoDelete
 
       })
     };
-    return this.httpCli.delete('http://ec2-18-217-229-99.us-east-2.compute.amazonaws.com:8080/todos/ ', httpHead);
+    return this.httpCli.delete<any>('http://ec2-18-217-229-99.us-east-2.compute.amazonaws.com:8080/todos/' + todoId, httpHead );
+
   }
 }
+
+
