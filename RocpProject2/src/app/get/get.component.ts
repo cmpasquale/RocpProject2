@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {ROCPService} from '../services/rocp.service';
-import {FormGroup, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-get',
@@ -9,7 +8,6 @@ import {FormGroup, FormControl} from '@angular/forms';
   styleUrls: ['./get.component.css']
 })
 export class GetComponent implements OnInit{
-  
   attrtodosId = '';
   data:any[];
   get todosId(): string {
@@ -20,28 +18,17 @@ export class GetComponent implements OnInit{
       this.attrtodosId = temp;
   }
 
- 
-
-
   constructor(private route: ActivatedRoute, private rocp: ROCPService) { }
 
-  
- 
-
-
   getTodosEc2() {
-   
     this.rocp.getTodos().subscribe(
       response => {
-        
         this.data = response;
         console.log(this.data.length);
-        
       }
     );
   }
-
-  getTodoEc2ById(todosId: string) {
+ getTodoEc2ById(todosId: string) {
       this.rocp.getTodosByID(todosId).subscribe(
       response1 => {
        this.data = response1;
@@ -51,7 +38,6 @@ export class GetComponent implements OnInit{
       }
 
   ngOnInit(): void {
-    
   }
 
 }
