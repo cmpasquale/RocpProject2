@@ -10,12 +10,10 @@ import { ROCPService } from '../services/rocp.service';
 export class DeleteComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private rocp: ROCPService) { }
-
-  deleteTodoEc2ById(todosId: string) {
+  deleteTodoEc2ById(todosId: string) : any {
     this.rocp.deleteTodos(todosId).subscribe(
       response => {
-
-        alert("todo deleted");
+        console.log( todosId + ' todo deleted');
       }
     );
   }
