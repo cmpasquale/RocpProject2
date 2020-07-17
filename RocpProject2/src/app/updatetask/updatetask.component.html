@@ -1,8 +1,28 @@
 
 <div>
     <form [formGroup]="todosUpdate">
-        <input type = "text" formControlName="id"> 
+        <label> Enter Task Id </label>
+        <input type = "text" formControlName="id"> <br>
+        <label> Enter New Task </label>
         <input type= "text" formControlName="title">
-    <button (click)='putTodosEc2(todosUpdate)'>Update Todos </button>
+    <button type="button" class="btn btn-primary" (click)='putTodosEc2(todosUpdate)'>Update Todos </button>
     </form>
 </div>
+<br><br>
+<ng-template [ngIf]="buttonclick">
+
+    <div>
+        <ng-template [ngIf]="status " [ngIfElse]="errorOccur">
+    
+            <div >
+              Task successfully changed
+            </div>
+        </ng-template>
+        <ng-template #errorOccur>
+            <div>
+                Not valid Id
+            </div>
+        </ng-template>
+    </div>
+    </ng-template>
+        
