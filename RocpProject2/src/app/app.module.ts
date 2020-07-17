@@ -10,7 +10,8 @@ import { DeleteComponent } from './delete/delete.component';
 import { UpdatetaskComponent} from './updatetask/updatetask.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { CreateComponent } from './create/create.component';
-
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,8 @@ import { CreateComponent } from './create/create.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    CarouselModule,
+    BsDropdownModule.forRoot(),
     RouterModule.forRoot([
       { path: 'getbyId', component: GetComponent},
       {path: 'create', component: CreateComponent},
