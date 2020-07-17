@@ -11,7 +11,7 @@
 
 <br>
 <div class = 'table-responsive'>
-    <table class ='table' *ngIf="data?.length">
+    <table class ='table' *ngIf="data?.length>0">
         <thead>
             <tr>
                 <th>ID</th>
@@ -30,7 +30,7 @@
             
         </tbody>
     </table>
-            <table class ='table' *ngIf="!data?.length">
+            <table class ='table' *ngIf="data && data.length == undefined">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -47,8 +47,8 @@
                <td> {{ data.completed}}</td>
            </tr>
            </tbody>
-       
-            </table>
+       </table>
+          
 </div>
 
 
