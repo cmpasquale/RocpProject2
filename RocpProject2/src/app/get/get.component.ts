@@ -24,7 +24,8 @@ export class GetComponent implements OnInit{
     this.rocp.getTodos().subscribe(
       response => {
         this.data = response;
-        console.log(this.data.length);
+        console.log("data" + this.data);
+        console.log("datalength" + this.data.length);
       }
     );
   }
@@ -32,7 +33,8 @@ export class GetComponent implements OnInit{
       this.rocp.getTodosByID(todosId).subscribe(
       response1 => {
        this.data = response1;
-       console.log(this.data);
+       console.log("data" + this.data);
+       console.log("datalength" + this.data.length);
       }
     );
       }
