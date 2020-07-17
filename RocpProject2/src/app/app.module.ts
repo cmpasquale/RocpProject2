@@ -25,13 +25,12 @@ import { CreateComponent } from './create/create.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([      
+    RouterModule.forRoot([
       { path: 'getbyId', component: GetComponent},
       {path: 'create', component: CreateComponent},
       { path: 'delete', component: DeleteComponent },
       { path: 'update', component: UpdatetaskComponent},
       { path: '**', component: WelcomeComponent }
-      
 
     ])
   ],
