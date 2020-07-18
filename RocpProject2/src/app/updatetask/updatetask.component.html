@@ -1,14 +1,32 @@
 
-<div>
-    <form [formGroup]="todosUpdate">
+<div>   
+    <form [formGroup]="todosUpdatetask">
         <label> Enter Task Id </label>
         <input type = "text" formControlName="id"> <br>
         <label> Enter New Task </label>
         <input type= "text" formControlName="title">
-    <button type="button" class="btn btn-primary" (click)='putTodosEc2(todosUpdate)'>Update Todos </button>
+    <button type="button" class="btn btn-primary" (click)='putTodosEc2(todosUpdatetask)'>Update Todos </button>
     </form>
 </div>
 <br><br>
+
+<!-- Form for updating completed status-->
+<div>
+    <form [formGroup]="todosCompletestatus">
+        <label> Enter Task Id</label>
+        <input type = "number"  formControlName="id"> <br>
+
+        <!-- <label> Enter New Task</label>
+        <input type= "text" formControlName="title">
+        <label>Enter Completion status</label>
+        <input type= "checkbox" formControlName="Completed">-->
+        <button class="btn btn-primary" (click)='putTodosEc2complete(todosCompletestatus)'>Update Todos status</button> 
+    </form>
+          
+</div>
+<br><br>
+
+<!-- message for Success or Error-->
 <ng-template [ngIf]="buttonclick">
 
     <div>
