@@ -56,14 +56,14 @@ export class UpdatetaskComponent implements OnInit {
            // this.data = response1;
             //let response=JSON.parse(response1);
     
-            console.log("inside get id success :"+response1.id);
+           // console.log("inside get id success :"+response1.id);
          
-             todoscomplete1.patchValue({title:response1.title});
+            // todoscomplete1.patchValue({title:response1.title});
              console.log(todoscomplete1.get('title').value);
             // let completestatus=response1.completed;
              //console.log("status before update : "+ completestatus);
              todoscomplete1.patchValue({completed:true});
-            console.log(response1.completed);
+           // console.log(response1.completed);
             //todoscomplete1.patchValue({completed:!completestatus});
              let form2=JSON.stringify(todoscomplete1.value);
     

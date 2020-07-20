@@ -12,7 +12,9 @@ export class CreateComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private rocp: ROCPService) { }
   todos = new FormGroup({
+    id: new FormControl(''),
     title: new FormControl('')
+    
     });
   postTodoEc2(todoSub: FormGroup) {
     let form = JSON.stringify(todoSub.value);

@@ -1,6 +1,7 @@
 
 <div>
     <form [formGroup] = "todos">
+          <label> Enter New Task </label>
         <input type = "text" formControlName ="title">
         <button type="button" class="btn btn-primary" (click)='postTodoEc2(todos)'>Create Todo</button>
     </form>
