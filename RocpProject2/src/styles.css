@@ -2,4 +2,8 @@
 *{
     font-family: 'Open Sans Condensed',
     sans-serif;
+    font-size: 20px;
+}
+.glyphicon {
+  font-size: 30px;
 }
