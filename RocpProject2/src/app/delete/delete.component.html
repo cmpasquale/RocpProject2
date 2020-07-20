@@ -3,5 +3,34 @@
     <button type="button" class="btn btn-primary" (click)='deleteTodoEc2ById(todosId)'>Delete Todos By ID</button>
 </div>
 <br>
+<div>
+    <button type="button" class="btn btn-primary" (click)="getTodosEc2(todosId)">Get Todos</button>
+</div>
+<br>
+<br>
 
+<br>
+<div class='table-responsive'>
+    <table class='table' *ngIf="data?.length>0">
+        <thead>
+            <tr>
+              <th>DELETE</th>
+                <th>ID</th>
+                <th>TITLE</th>
+                <th>CREATED ON</th>
+                <th>COMPLETED</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let temp of data'>
+                <td><button (click)='deleteTodoEc2ById(this.temp.id)' type="button" class="btn btn-default btn-sm glyphicon glyphicon-trash"> </button></td>
+                <td> {{ temp.id}} </td>
+                <td> {{ temp.title }} </td>
+                <td> {{ temp.createdOn}}</td>
+                <td> {{ temp.completed}}</td>
+            </tr>
 
+        </tbody>
+    </table>
+
+</div>
