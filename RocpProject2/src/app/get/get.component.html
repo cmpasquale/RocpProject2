@@ -4,11 +4,10 @@
 </div>
 <br>
 <div>
-    <input type = "text" [(ngModel)] = 'todosId'> 
-    <button type="button" class="btn btn-primary"(click)='getTodoEc2ById(todosId)'>Get Todos By ID</button>
+    <input type = "text"  [(ngModel)] = 'todosId'> 
+    <button type="button"  class="btn btn-primary"(click)='getTodoEc2ById(todosId)'>Get Todos By ID</button>
 </div>
 <br>
-
 <br>
 <div class = 'table-responsive'>
     <table class ='table' *ngIf="data?.length>0">
@@ -26,11 +25,10 @@
                 <td> {{ temp.title }} </td>
                 <td> {{ temp.createdOn}}</td>
                 <td> {{ temp.completed}}</td>
-            </tr>
-            
+             </tr>
         </tbody>
     </table>
-            <table class ='table' *ngIf="data && data.length == undefined">
+    <table class ='table' *ngIf="data && data.length == undefined">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -40,16 +38,42 @@
                 </tr>
             </thead>
             <tbody>
-            <tr >
-               <td> {{ data.id}}  </td>
-               <td> {{ data.title }} </td>
-               <td> {{ data.createdOn}}</td>
-               <td> {{ data.completed}}</td>
-           </tr>
+                <tr >
+                    <td> {{ data.id}}  </td>
+                    <td> {{ data.title }} </td>
+                    <td> {{ data.createdOn}}</td>
+                    <td> {{ data.completed}}</td>
+                </tr>
            </tbody>
-       </table>
-          
+    </table>
 </div>
+<br>
+<div *ngIf="statusCode">
+    <div *ngIf="statusCode === 200" class="success">
+        Successfully retrieved all available Todos
+    </div>
+    <div *ngIf="statusCode === 201" class="success">
+        Successfully retrieved Todo by provided ID
+    </div>
+      <div *ngIf="statusCode === 500" class="error">
+      Internal Server Error.
+    </div>
+    <div *ngIf="statusCode === 401" class="error">
+        Unauthorized
+    </div>
+    <div *ngIf="statusCode === 403" class="error">
+        Forbidden
+    </div>
+    <div *ngIf="statusCode === 404" class="error">
+        Invalid ID - Unable to find Todo by provided ID
+    </div>
+</div>
+
+
+
+
+    
+
 
 
 
