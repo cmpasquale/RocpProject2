@@ -1,46 +1,58 @@
 
-<div>   
-    <form [formGroup]="todosUpdatetask">
-        <label> Enter Task Id </label>
-        <input type = "text" formControlName="id"> <br>
-        <label> Enter New Task </label>
-        <input type= "text" formControlName="title">
-    <button type="button" class="btn btn-primary" (click)='putTodosEc2(todosUpdatetask)'>Update Todos </button>
-    </form>
-</div>
-<br><br>
-
-<!-- Form for updating completed status-->
-<div>
-    <form [formGroup]="todosCompletestatus">
-        <label> Enter Task Id</label>
-        <input type = "number"  formControlName="id"> <br>
-
-        <!-- <label> Enter New Task</label>
-        <input type= "text" formControlName="title">
-        <label>Enter Completion status</label>
-        <input type= "checkbox" formControlName="Completed">-->
-        <button class="btn btn-primary" (click)='putTodosEc2complete(todosCompletestatus)'>Update Todos status</button> 
-    </form>
-          
-</div>
-<br><br>
-
 <!-- message for Success or Error-->
 <ng-template [ngIf]="buttonclick">
 
     <div>
         <ng-template [ngIf]="status " [ngIfElse]="errorOccur">
     
-            <div >
-              Task successfully changed
+            <div  class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success ! </strong> Task has been updated successfully
+    <button type="button" (click)='closeAll()' class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  
+
             </div>
         </ng-template>
         <ng-template #errorOccur>
-            <div>
-                Not valid Id
+            <div  class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Error ! </strong> Task with this Id not found
+    <button type="button" (click)='closeAll()' class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  
+                
             </div>
         </ng-template>
     </div>
     </ng-template>
-        
+         
+
+<div>   
+    <form [formGroup]="todosUpdatetask">
+        <div>
+            <label> Enter Task Id </label><br>
+            <input type = "text" class= "form-Control" placeholder="Enter Id Number" formControlName="id"> <br>
+       </div>
+       <div>
+            <label> Enter New Task </label><br>
+            <input type= "text" placeholder="Enter new Task"  formControlName="title">
+        </div>
+    <button type="button" class="btn btn-primary" (click)='putTodosEc2(todosUpdatetask)'>Update Todos </button>
+    </form>
+</div>
+<br><br>
+
+<!-- Form for updating completed status-->
+
+<div>
+    <form [formGroup]="todosPatch">
+        <label> Enter Task Id to Change Status</label><br>
+        <input type = "text" placeholder="Enter Id " formControlName="id"> <br>
+
+        <button class="btn btn-primary" (click)='patchTodosEc2(todosPatch)'>Update Todos status</button> 
+    </form>
+          
+</div>
+<br><br>
+
