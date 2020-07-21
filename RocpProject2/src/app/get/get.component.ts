@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {ROCPService} from '../services/rocp.service';
 
+
 @Component({
     selector: 'app-get',
     templateUrl: './get.component.html',
@@ -23,6 +24,7 @@ export class GetComponent implements OnInit{
   constructor(private route: ActivatedRoute, private rocp: ROCPService) { }
 
   getTodosEc2() {
+    this.todosId = '';
     this.rocp.getTodos().subscribe(
       response => {
         this.data = response;
@@ -32,6 +34,7 @@ export class GetComponent implements OnInit{
     );
   }
  getTodoEc2ById(todosId: string) {
+     
       this.data =[];
       if (todosId == "")
       { 
@@ -39,11 +42,13 @@ export class GetComponent implements OnInit{
           this.data =[];
           this.statusCode = 0;}
 
-        else if (isNaN(parseFloat(todosId))){
-          alert ("Todo ID needs to be a number")
-          this.todosId = '';
-          this.data =[];
-          this.statusCode = 0;
+        
+          else if (isNaN(Number(todosId))){
+            alert ("Todo ID needs to be a number")
+            this.todosId = '';
+            this.data =[];
+            this.statusCode = 0;
+           
          
         }
         else
