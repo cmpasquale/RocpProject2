@@ -1,4 +1,25 @@
 
+<div *ngIf="statusCode">
+    <div *ngIf="statusCode === 200" class="alert alert-success alert-dismissible fade show" role="alert">
+        Successfully retrieved all available Todos
+    </div>
+    <div *ngIf="statusCode === 201" class="alert alert-success alert-dismissible fade show" role="alert">
+        Successfully retrieved Todo by provided ID
+    </div>
+      <div *ngIf="statusCode === 500" class="alert alert-danger alert-dismissible fade show">
+      Internal Server Error.
+    </div>
+    <div *ngIf="statusCode === 401" class="alert alert-danger alert-dismissible fade show">
+        Unauthorized
+    </div>
+    <div *ngIf="statusCode === 403" class="alert alert-danger alert-dismissible fade show">
+        Forbidden
+    </div>
+    <div *ngIf="statusCode === 404" class="alert alert-danger alert-dismissible fade show">
+        Invalid ID - Unable to find Todo by provided ID
+    </div>
+</div>
+<br>
 <div>
     <button type="button" class="btn btn-primary"(click) = "getTodosEc2()">Get Todos</button>
 </div>
@@ -48,26 +69,6 @@
     </table>
 </div>
 <br>
-<div *ngIf="statusCode">
-    <div *ngIf="statusCode === 200" class="success">
-        Successfully retrieved all available Todos
-    </div>
-    <div *ngIf="statusCode === 201" class="success">
-        Successfully retrieved Todo by provided ID
-    </div>
-      <div *ngIf="statusCode === 500" class="error">
-      Internal Server Error.
-    </div>
-    <div *ngIf="statusCode === 401" class="error">
-        Unauthorized
-    </div>
-    <div *ngIf="statusCode === 403" class="error">
-        Forbidden
-    </div>
-    <div *ngIf="statusCode === 404" class="error">
-        Invalid ID - Unable to find Todo by provided ID
-    </div>
-</div>
 
 
 
