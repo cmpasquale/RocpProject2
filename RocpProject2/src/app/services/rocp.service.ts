@@ -18,7 +18,7 @@ export class ROCPService {
         'Access-Control-Allow-Origin': '*',
       })
     };
-    return this.httpCli.post<string[]>('http://ec2-18-217-229-99.us-east-2.compute.amazonaws.com:8080/todos', todoForm, httpHead);
+    return this.httpCli.post<string[]>('http://ec2-18-217-229-99.us-east-2.compute.amazonaws.com:8080/todos', todoForm, httpHead).pipe(catchError(this.handleError));
   }
 
   getTodos(): Observable<string[]> {
@@ -39,7 +39,7 @@ export class ROCPService {
         'Access-Control-Allow-Origin': '*',
       })
     };
-    return this.httpCli.get<string[]>('http://ec2-18-217-229-99.us-east-2.compute.amazonaws.com:8080/todos/' + todoId, httpHead);
+    return this.httpCli.get<string[]>('http://ec2-18-217-229-99.us-east-2.compute.amazonaws.com:8080/todos/' + todoId, httpHead).pipe(catchError(this.handleError));
   }
  
   /* Update task by Id */
@@ -87,6 +87,13 @@ export class ROCPService {
     return this.httpCli.delete<any>('http://ec2-18-217-229-99.us-east-2.compute.amazonaws.com:8080/todos/' + todoId, httpHead );
 
   }
+
+  private handleError(error: any) {
+    console.error(error);
+    return throwError(error);
+  }
 }
+
+
 
 

@@ -3,13 +3,15 @@ import { ActivatedRoute } from '@angular/router';
 import {ROCPService} from '../services/rocp.service';
 
 @Component({
-  selector: 'app-get',
-  templateUrl: './get.component.html',
-  styleUrls: ['./get.component.css']
+    selector: 'app-get',
+    templateUrl: './get.component.html',
+    styleUrls: ['./get.component.css']
 })
 export class GetComponent implements OnInit{
   attrtodosId = '';
+  statusCode: number;
   data:any[];
+
   get todosId(): string {
     return this.attrtodosId;
   }
@@ -24,20 +26,40 @@ export class GetComponent implements OnInit{
     this.rocp.getTodos().subscribe(
       response => {
         this.data = response;
-        console.log("data" + this.data);
-        console.log("datalength" + this.data.length);
-      }
+        this.statusCode = 200;
+        },
+        errorCode => this.statusCode = errorCode.status
     );
   }
  getTodoEc2ById(todosId: string) {
-      this.rocp.getTodosByID(todosId).subscribe(
-      response1 => {
-       this.data = response1;
-       console.log("data" + this.data);
-       console.log("datalength" + this.data.length);
+      this.data =[];
+      if (todosId == "")
+      { 
+          alert ("Please enter a valid Task ID")
+          this.data =[];
+          this.statusCode = 0;}
+
+        else if (isNaN(parseFloat(todosId))){
+          alert ("Todo ID needs to be a number")
+          this.todosId = '';
+          this.data =[];
+          this.statusCode = 0;
+         
+        }
+        else
+      {
+        this.rocp.getTodosByID(todosId).subscribe(
+          response1 => {
+           this.data = response1;
+           this.statusCode = 201;
+           },
+          errorCode =>{
+           this.statusCode = errorCode.status;
+           } );
+
       }
-    );
-      }
+     
+    }
 
   ngOnInit(): void {
   }
