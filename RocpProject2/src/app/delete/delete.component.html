@@ -1,15 +1,41 @@
-<div>
-    <input type="text" [(ngModel)]='todosId'>
-    <button type="button" class="btn btn-primary" (click)='deleteTodoEc2ById(todosId)'>Delete Todos By ID</button>
-</div>
-<br>
-<div>
-    <button type="button" class="btn btn-primary" (click)="getTodosEc2()">Get Todos</button>
-</div>
-<br>
-<br>
 
-<br>
+
+<div *ngIf="statusCode">
+    <div *ngIf="statusCode === 200" class="alert alert-success alert-dismissible fade show" role="alert">
+        Successfully retrieved all available Todos
+    </div>
+    <div *ngIf="statusCode === 204" class="alert alert-success alert-dismissible fade show" role="alert">
+        Successfully deleted Todo by provided ID
+    </div>
+    <div *ngIf="statusCode === 400" class="alert alert-danger alert-dismissible fade show">
+        Failed to delete Todo - valid path variable was missing
+    </div>
+    <div *ngIf="statusCode === 401" class="alert alert-danger alert-dismissible fade show">
+        Unauthorized
+    </div>
+    <div *ngIf="statusCode === 403" class="alert alert-danger alert-dismissible fade show">
+        Forbidden
+    </div>
+    <div *ngIf="statusCode === 500" class="alert alert-danger alert-dismissible fade show">
+        Internal Server Error.
+    </div>
+ 
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+    <input  placeholder="Please Enter Todo Id" type="text" [(ngModel)]='todosId'>
+    <button type="button" class="btn btn-primary btn-lg" (click)='deleteTodoEc2ById(todosId)'>Delete Todos By ID</button>
+        </div>
+<div class="col-sm">
+    <button type="button" class="btn btn-primary btn-lg" (click)='getTodosEc2()'>Get Todos</button>
+</div>
+<div class="col-sm">
+    <button type="button" class="btn btn-danger btn-lg" (click)="truncateAPI()">Clear all Todos</button>
+</div>
+</div>
+</div>
 <div class='table-responsive'>
     <table class='table' *ngIf="data?.length>0">
         <thead>
