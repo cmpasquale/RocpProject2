@@ -3,25 +3,28 @@
     color : red;
 }
 
-label {
+  label {
     width:230px;
     clear:left;
-    text-align:right;
-    padding-right:20px;
-}
+   /* clear:right;
+    /*text-align:right;*/
+     padding-right:20px; 
+} 
 
-input, label {
-    float:left;
-}
-#play_button{
-    position:relative;
-    left:22%;
-    top:6px;
+ #chk_box {
+    position: relative;
+}  
+
+.btn {
     font-size: 20px;
-    height: 40px;
-    width: 150px;
-}
+   /* position:relative;
+  /*  left:100;
+    top:6px;
+    
+    /* height: 40px;
+    width: 150px;  */
+} 
 h1{
     color: blue;
-    padding:40px;
+    padding:10px;
 }
