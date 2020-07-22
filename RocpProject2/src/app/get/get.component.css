@@ -14,3 +14,32 @@ fieldset {
   input {
     margin: 5px;
   }
+
+  #position_button{
+    position:relative;
+    top:10px;
+    left: 20px;
+    font-size: 20px;
+    height: 40px;
+    width: 125px;
+}
+
+#position_button1{
+    position:relative;
+    top:30px;
+    left: 20px;
+    font-size: 20px;
+    height: 40px;
+    width: 125px;
+}
+
+
+
+#position_input{
+    position:relative;
+    top:33px;
+    left: 30px;
+    font-size: 20px;
+    height: 40px;
+    width: 125px;
+}

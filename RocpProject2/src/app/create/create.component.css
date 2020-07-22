@@ -1,4 +1,20 @@
-label {
+fieldset {
+    background-color: #eeeeee;
+    border-color:#F00;
+    width:60%;
+    height:100%;
+  }
+
+  legend {
+    background-color: #d5d5d5;
+    color: black;
+    padding: 5px 10px;
+  }
+  
+  
+  label {
+  
+    top:25px;
     width:180px;
     clear:left;
     text-align:right;
@@ -7,21 +23,22 @@ label {
 
 input, label {
     float:left;
+   
+    top:25px;
 }
 
-fieldset {
-    background-color: #eeeeee;
-    border-color:#F00;
-    width:500px;
-    height:150px
-  }
   
-  legend {
-    background-color: #d5d5d5;
-    color: black;
-    padding: 5px 10px;
-  }
   
-  input {
-    margin: 5px;
-  }
+  #position_button{
+    
+    top:80px;
+    left: -170px;
+    font-size: 20px;
+    height: 40px;
+    width: 125px;
+}
+
+
+
+
+ 
