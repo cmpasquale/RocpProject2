@@ -1,19 +1,58 @@
 
 
- <fieldset>
-  <legend>Create your own Todos</legend>
-  <form [formGroup] = "todos">
-    
-    <div>
-      <label> Enter New Task </label>
-      <input type = "text" class= "form-Control" placeholder="Enter Task Title" formControlName="title"> 
+ <fieldset style="border:1px solid #999; border-radius:8px; padding:20px;">
+    <legend style="border:1px solid">Create your own Todos</legend>
+      <div *ngIf="statusCode">
+        <div *ngIf="statusCode === 200" class="alert alert-success alert-dismissible fade show" role="alert">
+          Successfully created Todo 
+        </div>
+        <div *ngIf="statusCode === 201" class="alert alert-success alert-dismissible fade show" role="alert">
+            Successfully created Todo from TodoForm
+        </div>
+          <div *ngIf="statusCode === 500" class="alert alert-danger alert-dismissible fade show">
+          Internal Server Error.
+        </div>
+        <div *ngIf="statusCode === 401" class="alert alert-danger alert-dismissible fade show">
+            Unauthorized
+        </div>
+        <div *ngIf="statusCode === 403" class="alert alert-danger alert-dismissible fade show">
+            Forbidden
+        </div>
+        <div *ngIf="statusCode === 404" class="alert alert-danger alert-dismissible fade show">
+          Not Found
+        </div>
     </div>
- <br>
- <div>
-      <label> Enter Completion Status </label>
-      <input type= "checkbox"   formControlName="completed">
-  </div>      
+  <div > 
+    <form [formGroup] = "todos"  >
+      <div ><label> Enter New Task </label>
+        <input type = "text"  class= "form-Control" placeholder="Enter Task Title" formControlName="title">
+      </div>
+        <div>
+          <button type="button" id = "position_button" class="btn btn-primary" (click)='postTodoEc2(todos)'>Create Todo</button>
+        </div>
+    </form>
+  </div>
   <br>
-  <button type="button" class="btn btn-primary" (click)='postTodoEc2(todos)'>Create Todo</button>
-  </form>
+  <br>
+  <br>
+  <div class = 'table-responsive'>
+    <table class ='table' *ngIf="data?.length>0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>TITLE</th>
+                <th>CREATED ON</th>
+                <th>COMPLETED</th>
+            </tr>
+        </thead>
+        <tbody>
+             <tr *ngFor='let temp of data'>
+                <td> {{ temp.id}}  </td>
+                <td> {{ temp.title }} </td>
+                <td> {{ temp.createdOn}}</td>
+                <td> {{ temp.completed}}</td>
+             </tr>
+        </tbody>
+    </table>
+</div>
 </fieldset>
