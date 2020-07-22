@@ -11,6 +11,8 @@ import { ITS_JUST_ANGULAR } from '@angular/core/src/r3_symbols';
 export class UpdatetaskComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private rocp: ROCPService) { }
+  data: any[];
+  statusCode: number;
   status: boolean;
   buttonclick = false;
   todosPatch = new FormGroup({
@@ -30,13 +32,13 @@ export class UpdatetaskComponent implements OnInit {
  /* Use  ROCP service to update task , Call to putTodosEc2 and subscribe() observable */
   // tslint:disable-next-line: typedef
   putTodosEc2(todosUpdatetask1:FormGroup){
+    this.data = [];
     const idValue = todosUpdatetask1.get('id').value;
     const titleValue = todosUpdatetask1.get('title').value;
     const form = JSON.stringify(todosUpdatetask1.value);
     this.todosUpdatetask.reset({});
     this.buttonclick = false;
-
-
+    // tslint:disable-next-line: no-unused-expression
     // tslint:disable-next-line: triple-equals
     console.log('value of id :' + idValue);
     console.log('form: ' + form);
@@ -86,12 +88,12 @@ export class UpdatetaskComponent implements OnInit {
           );
     } // end of else
 }
-
   /*Use ROCP service to update completed Status */
 
   // tslint:disable-next-line: typedef
   patchTodosEc2(todosPatch){
     // console.log("in puttosEc2complete function  "+todoscomplete1.get('id').value);
+    this.data = [];
     const idValue = todosPatch.get('id').value;
     console.log('id value: ' + idValue);
     this.todosPatch.reset({});
@@ -134,7 +136,7 @@ export class UpdatetaskComponent implements OnInit {
                   this.status = false;
               }
            ); // end of getbyId request subscribe
-            // this.todosPatch.reset({});
+           
           } // end of else (validation clear)
   }
 
@@ -143,7 +145,15 @@ export class UpdatetaskComponent implements OnInit {
     this.buttonclick = false;
 
   }
-
+  getTodosEc2() {
+    this.rocp.getTodos().subscribe(
+      response => {
+        this.data = response;
+        this.statusCode = 200;
+      },
+      errorCode => this.statusCode = errorCode.status
+    );
+  }
 
   ngOnInit(): void {
   }
