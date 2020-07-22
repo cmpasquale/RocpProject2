@@ -1,9 +1,19 @@
 
-<div>
-    <form [formGroup] = "todos">
-          <label> Enter New Task </label>
-        <input type = "text" formControlName ="title">
-        <button type="button" class="btn btn-primary" (click)='postTodoEc2(todos)'>Create Todo</button>
-    </form>
-</div>
 
+ <fieldset>
+  <legend>Create your own Todos</legend>
+  <form [formGroup] = "todos">
+    
+    <div>
+      <label> Enter New Task </label>
+      <input type = "text" class= "form-Control" placeholder="Enter Task Title" formControlName="title"> 
+    </div>
+ <br>
+ <div>
+      <label> Enter Completion Status </label>
+      <input type= "checkbox"   formControlName="completed">
+  </div>      
+  <br>
+  <button type="button" class="btn btn-primary" (click)='postTodoEc2(todos)'>Create Todo</button>
+  </form>
+</fieldset>
