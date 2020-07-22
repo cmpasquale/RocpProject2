@@ -34,17 +34,15 @@ export class GetComponent implements OnInit{
     );
   }
  getTodoEc2ById(todosId: string) {
-     
+
       this.data =[];
       if (todosId == "")
-      { 
-          alert ("Please enter a valid Task ID")
-          this.data =[];
-          this.statusCode = 0;}
-
-        
-          else if (isNaN(Number(todosId))){
-            alert ("Todo ID needs to be a number")
+      {
+          alert ('Please enter a valid Task ID')
+        this.data = [];
+     this.statusCode = 0;
+   } else if (isNaN(Number(todosId))){
+            alert ('Todo ID needs to be a number')
             this.todosId = '';
             this.data =[];
             this.statusCode = 0;
