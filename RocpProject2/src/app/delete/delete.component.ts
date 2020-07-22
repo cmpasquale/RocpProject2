@@ -9,43 +9,54 @@ import { ifStmt } from '@angular/compiler/src/output/output_ast';
   styleUrls: ['./delete.component.css']
 })
 export class DeleteComponent implements OnInit {
+  todosId = '';
+  statusCode: number;
+  data: any[];
 
   constructor(private route: ActivatedRoute, private rocp: ROCPService) { }
 
-  todosId = '';
-  attrtodosId = '';
-  data: any[];
-  statusCode: number;
-
   deleteTodoEc2ById(todosId: string): any {
+      this.rocp.deleteTodos(todosId).subscribe(
+        response1 => {
+          this.data = response1;
+          this.statusCode = 204;
+          this.getTodosEc2();
+        },
+        errorCode => {
+          this.statusCode = errorCode.status;
+        });
+
+    }
+  getTodoEc2ById(todosId: string): any {
     this.data = [];
     if (todosId === '') {
       alert('Please enter a valid Task ID');
       this.data = [];
       this.statusCode = 0;
-    }
-    else if (isNaN(Number(todosId))) {
+    } else if (isNaN(Number(todosId))) {
       alert('Todo ID needs to be a number');
       this.todosId = '';
       this.data = [];
       this.statusCode = 0;
     }
     else {
-      this.rocp.deleteTodos(todosId).subscribe(
+      this.rocp.getTodosByID(todosId).subscribe(
         response => {
           this.data = response;
-          this.statusCode = 204;
+          this.deleteTodoEc2ById(this.todosId);
+          this.getTodosEc2();
         },
         errorCode => {
           this.statusCode = errorCode.status;
         });
+
     }
+
   }
-    getTodosEc2() {
+    getTodosEc2(): any {
     this.rocp.getTodos().subscribe(
       response => {
         this.data = response;
-        this.statusCode = 200;
       },
       errorCode => this.statusCode = errorCode.status
     );

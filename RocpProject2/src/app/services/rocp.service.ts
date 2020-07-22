@@ -99,11 +99,10 @@ export class ROCPService {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Access-Control-Allow-origin': '*',
-
       })
     };
     return this.httpCli.delete<any>('http://ec2-18-217-229-99.us-east-2.compute.amazonaws.com:8080/todos/'
-      + todoId, httpHead).pipe(catchError(this.handleError))
+      + todoId, httpHead).pipe(catchError(this.handleError));
 
   }
   truncateTodos(): Observable<any> {

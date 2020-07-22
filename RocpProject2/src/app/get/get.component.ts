@@ -47,7 +47,7 @@ export class GetComponent implements OnInit{
             this.data =[];
             this.statusCode = 0;
            
-         
+    
         }
         else
       {
