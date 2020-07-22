@@ -52,11 +52,11 @@ export class ROCPService {
     };
     return this.httpCli.put<string>('http://ec2-18-217-229-99.us-east-2.compute.amazonaws.com:8080/todos/ ', todoUpdate, httpHead).pipe(
     catchError((err) => {
-      console.log("status of error ,check inside service: "+ err.status);
-      return throwError(err.status);
-      //Re throw it back to Update Component
+    console.log('status of error ,check inside service: '+ err.status);
+    return throwError(err.status);
+      // Re throw it back to Update Component
     })
-  )
+   );
   }
 
   getTodosByIDforUpdate(todoId: string): Observable<string> {
@@ -68,30 +68,30 @@ export class ROCPService {
     };
     return this.httpCli.get<string>('http://ec2-18-217-229-99.us-east-2.compute.amazonaws.com:8080/todos/' + todoId, httpHead).pipe(
       catchError((err) => {
-        console.log("status of error ,check inside service: "+ err.status);
+        console.log('status of error ,check inside service: ' + err.status);
         return throwError(err.status);
-        //Re throw it back to Update Component
+        // Re throw it back to Update Component
       })
     )
   }
 
 // Update Completion status (patch update)
-patchTodos(Id):Observable<string>{
-  const httpHead ={
+patchTodos(Id): Observable<string>{
+  const httpHead = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
       'Access-Control-Allow-origin': '*'
     })
   };
-  return this.httpCli.patch<string>(' http://ec2-18-217-229-99.us-east-2.compute.amazonaws.com:8080/todos/' + Id ,httpHead).pipe(
+  return this.httpCli.patch<string>(' http://ec2-18-217-229-99.us-east-2.compute.amazonaws.com:8080/todos/' + Id , httpHead).pipe(
     catchError((err) => {
-     console.log("value of Id : "+Id);
-      console.log("status of error, error in service : "+ err.status);
-      return throwError(err.status);    //Re throw it back to component
+     console.log('value of Id : ' + Id);
+     console.log('status of error, error in service : ' + err.status);
+     return throwError(err.status);    // Re throw it back to component
     })
-  )
+  );
 
-}
+ }
 
 
   // Delete to do by Id
