@@ -7,7 +7,7 @@ import { catchError} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ROCPService {
-constructor(private httpCli: HttpClient) { }
+  constructor(private httpCli: HttpClient) { }
 
   postTodo(todoForm): Observable<string[]> {
     const httpHead = {
@@ -56,13 +56,6 @@ constructor(private httpCli: HttpClient) { }
         //Re throw it back to Update Component
       })
     );
-    catchError((err) => {
-    console.log('status of error ,check inside service: '+ err.status);
-    return throwError(err.status);
-      // Re throw it back to Update Component
-    })
-   );
-    
   }
 
   getTodosByIDforUpdate(todoId: string): Observable<string> {
@@ -81,23 +74,23 @@ constructor(private httpCli: HttpClient) { }
     )
   }
 
-// Update Completion status (patch update)
-patchTodos(Id): Observable<string>{
-  const httpHead = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-origin': '*'
-    })
-  };
-  return this.httpCli.patch<string>(' http://ec2-18-217-229-99.us-east-2.compute.amazonaws.com:8080/todos/' + Id , httpHead).pipe(
-    catchError((err) => {
-     console.log('value of Id : ' + Id);
-     console.log('status of error, error in service : ' + err.status);
-     return throwError(err.status);    // Re throw it back to component
-    })
-  );
+  // Update Completion status (patch update)
+  patchTodos(Id): Observable<string> {
+    const httpHead = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-origin': '*'
+      })
+    };
+    return this.httpCli.patch<string>(' http://ec2-18-217-229-99.us-east-2.compute.amazonaws.com:8080/todos/' + Id, httpHead).pipe(
+      catchError((err) => {
+        console.log('value of Id : ' + Id);
+        console.log('status of error, error in service : ' + err.status);
+        return throwError(err.status);    // Re throw it back to component
+      })
+    );
 
- }
+  }
 
 
   // Delete to do by Id
