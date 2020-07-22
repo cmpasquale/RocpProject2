@@ -19,7 +19,8 @@ export class UpdatetaskComponent implements OnInit {
 
   todosUpdatetask = new FormGroup({
     id: new FormControl(''),
-    title: new FormControl('')
+    title: new FormControl(''),
+    completed : new FormControl('')
   });
 
   
@@ -38,6 +39,7 @@ export class UpdatetaskComponent implements OnInit {
 
     // tslint:disable-next-line: triple-equals
     console.log('value of id :' + idValue);
+    console.log('form: ' + form);
     // tslint:disable-next-line: triple-equals
     if (idValue == '' || idValue == null)
       {
@@ -54,7 +56,7 @@ export class UpdatetaskComponent implements OnInit {
           alert ('Please enter new Task ')
         }
     else{
-          console.log(parseFloat(idValue)); 
+         // console.log(parseFloat(idValue)); 
           alert('Are you sure to change Task');
           console.log(form);
           this.buttonclick = true;
@@ -101,7 +103,7 @@ export class UpdatetaskComponent implements OnInit {
           alert ('Please enter a valid Task ID')
       }
     else if (isNaN(Number(idValue))){
-    //else if (isNaN(parseFloat(idValue))){
+    // else if (isNaN(parseFloat(idValue))){
           alert ('Task ID needs to be a number');
 
         }
@@ -130,8 +132,7 @@ export class UpdatetaskComponent implements OnInit {
                   // tslint:disable-next-line: comment-format
                   //console.log("error in profile in patch by id: "+id);
                   this.status = false;
-
-                    }
+              }
            ); // end of getbyId request subscribe
             // this.todosPatch.reset({});
           } // end of else (validation clear)
@@ -140,7 +141,7 @@ export class UpdatetaskComponent implements OnInit {
   // tslint:disable-next-line: typedef
   closeAll(){
     this.buttonclick = false;
-    
+
   }
 
 
