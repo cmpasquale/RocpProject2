@@ -1,4 +1,5 @@
-
+<fieldset>
+    <legend>Retrieve your Todos</legend>
 <div *ngIf="statusCode">
     <div *ngIf="statusCode === 200" class="alert alert-success alert-dismissible fade show" role="alert">
         Successfully retrieved all available Todos
@@ -25,8 +26,8 @@
 </div>
 <br>
 <div>
-    <input type = "text"  [(ngModel)] = 'todosId'> 
     <button type="button"  class="btn btn-primary"(click)='getTodoEc2ById(todosId)'>Get Todos By ID</button>
+    <input type = "text" placeholder="Enter ID Number" [(ngModel)] = 'todosId'> 
 </div>
 <br>
 <br>
@@ -69,6 +70,7 @@
     </table>
 </div>
 <br>
+</fieldset>
 
 
 

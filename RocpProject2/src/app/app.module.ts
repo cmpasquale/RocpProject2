@@ -13,6 +13,8 @@ import { CreateComponent } from './create/create.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,8 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     DeleteComponent,
     UpdatetaskComponent,
     WelcomeComponent,
-    CreateComponent
+    CreateComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,9 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     ReactiveFormsModule,
     BsDropdownModule.forRoot(),
     CarouselModule.forRoot(),
-    RouterModule.forRoot([
+    BrowserModule,
+    BrowserModule,
+   RouterModule.forRoot([
       { path: 'getbyId', component: GetComponent},
       {path: 'create', component: CreateComponent},
       { path: 'delete', component: DeleteComponent },
@@ -38,6 +43,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 
     ])
   ],
+ 
   providers: [ROCPService],
   bootstrap: [AppComponent]
 })
