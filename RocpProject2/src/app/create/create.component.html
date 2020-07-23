@@ -5,21 +5,39 @@
       <div *ngIf="statusCode">
         <div *ngIf="statusCode === 200" class="alert alert-success alert-dismissible fade show" role="alert">
           Successfully created Todo 
+          <button type="button" (click)='closeAll()' class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>      
         </div>
         <div *ngIf="statusCode === 201" class="alert alert-success alert-dismissible fade show" role="alert">
             Successfully created Todo from TodoForm
+            <button type="button" (click)='closeAll()' class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>      
         </div>
           <div *ngIf="statusCode === 500" class="alert alert-danger alert-dismissible fade show">
           Internal Server Error.
+          <button type="button" (click)='closeAll()' class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>      
         </div>
         <div *ngIf="statusCode === 401" class="alert alert-danger alert-dismissible fade show">
             Unauthorized
+            <button type="button" (click)='closeAll()' class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>      
         </div>
         <div *ngIf="statusCode === 403" class="alert alert-danger alert-dismissible fade show">
             Forbidden
+            <button type="button" (click)='closeAll()' class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>      
         </div>
         <div *ngIf="statusCode === 404" class="alert alert-danger alert-dismissible fade show">
           Not Found
+          <button type="button" (click)='closeAll()' class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>      
         </div>
     </div>
   <div > 
