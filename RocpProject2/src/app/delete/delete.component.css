@@ -31,3 +31,9 @@ input {
 #middle{
     margin-left: 100px;
 }
+  .table-responsive{
+    overflow-y:scroll;
+    height: 450px;
+    width: 100%;
+    display:block
+  }
