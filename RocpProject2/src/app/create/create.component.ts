@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {ROCPService} from '../services/rocp.service';
-import {FormGroup, FormControl} from '@angular/forms';
+import { ROCPService } from '../services/rocp.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-create',
@@ -10,25 +10,27 @@ import {FormGroup, FormControl} from '@angular/forms';
 })
 export class CreateComponent implements OnInit {
   statusCode: number;
-  data:any[];
+  data: any[];
   taskInput: string;
- 
+
   constructor(private route: ActivatedRoute, private rocp: ROCPService) { }
   todos = new FormGroup({
     completed: new FormControl(''),
     title: new FormControl('')
-   });
+  });
 
-   clear(){
-     console.log("task input" + this.taskInput)
+  clear() {
+    console.log("task input" + this.taskInput)
     this.taskInput = '';
-    }
+  }
 
   postTodoEc2(todoSub: FormGroup) {
     const titleValue = todoSub.get('title').value;
-    if (titleValue == '' || titleValue == null)
-      {alert ('Please enter a valid Task Title')
-        this.statusCode = 0;}
+    if (titleValue == '' || titleValue == null) {
+      alert('Please enter a valid Task Title')
+      this.statusCode = 0;
+      this.data = [];
+    }
     else {
       let form = JSON.stringify(todoSub.value);
       console.log('form ' + form);
@@ -40,15 +42,15 @@ export class CreateComponent implements OnInit {
           this.rocp.getTodos().subscribe(
             response1 => {
               this.data = response1;
-             // this.statusCode = 200;
-              },
-              errorCode => this.statusCode = errorCode.status
+              // this.statusCode = 200;
+            },
+            errorCode => this.statusCode = errorCode.status
           );
-           },
-           errorCode => this.statusCode = errorCode.status
+        },
+        errorCode => this.statusCode = errorCode.status
 
       );
-      
+
 
     }
 

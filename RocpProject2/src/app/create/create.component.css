@@ -35,6 +35,12 @@ input, label {
     width: 125px;
 }
 
+.table-responsive{
+    overflow-y:scroll;
+    height: 450px;
+    width: 100%;
+    display:block
+  }
 
 
 
