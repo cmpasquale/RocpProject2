@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ROCPService } from '../services/rocp.service';
-import { ifStmt } from '@angular/compiler/src/output/output_ast';
+
 
 @Component({
   selector: 'app-delete',
@@ -51,17 +51,18 @@ export class DeleteComponent implements OnInit {
         });
 
     }
-
   }
+
     getTodosEc2(): any {
     this.rocp.getTodos().subscribe(
       response => {
         this.data = response;
+        console.log(response);
       },
       errorCode => this.statusCode = errorCode.status
     );
       }
-      truncateAPI() {
+      truncateAPI(): any {
     this.rocp.truncateTodos().subscribe(
       response => {
         console.log('truncated table');

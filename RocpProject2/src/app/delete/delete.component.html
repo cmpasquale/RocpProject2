@@ -1,26 +1,43 @@
 
 <fieldset>
-    <legend>Delete your Tasks</legend>
+    <legend>Delete your Todos</legend>
 <div *ngIf="statusCode">
     <div *ngIf="statusCode === 204" class="alert alert-success alert-dismissible fade show" role="alert">
         Successfully deleted Todo by provided ID
+        <button type="button"  class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
     <div *ngIf="statusCode === 400" class="alert alert-danger alert-dismissible fade show">
         Failed to delete Todo - valid path variable was missing
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
     <div *ngIf="statusCode === 401" class="alert alert-danger alert-dismissible fade show">
         Unauthorized
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
     <div *ngIf="statusCode === 403" class="alert alert-danger alert-dismissible fade show">
         Forbidden
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
     <div *ngIf="statusCode === 404" class="alert alert-danger alert-dismissible fade show">
         Invalid ID - Unable to find Todo by provided ID
+        <button type="button"  class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
     <div *ngIf="statusCode === 500" class="alert alert-danger alert-dismissible fade show">
         Internal Server Error.
+        <button type="button"  class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
- 
 </div>
 
 <div class="container">
@@ -29,6 +46,7 @@
      <input type = "text" placeholder="Enter Id number" [(ngModel)] = 'todosId'> 
     <button type="button" class="btn btn-primary"  (click)='getTodoEc2ById(todosId)'>Delete Todos By ID</button>
         </div>
+        
 <div class="col-sm">
     <button type="button" class="btn btn-primary btn-lg"  id= "middle" (click)='getTodosEc2()'>Get Todos</button>
 </div>
@@ -36,9 +54,9 @@
     <button type="button" class="btn btn-warning btn-lg" (click)="truncateAPI()">Clear all Todos</button>
 </div>
 </div>
-</div>
-<div class='table-responsive'>
-    <table class='table' *ngIf="data?.length>0">
+<div class='table-responsive' *ngIf="data?.length>0">
+ <table class='table'>
+
         <thead>
             <tr>
               <th>DELETE</th>
@@ -60,5 +78,6 @@
         </tbody>
     </table>
 
+</div>
 </div>
 </fieldset>
