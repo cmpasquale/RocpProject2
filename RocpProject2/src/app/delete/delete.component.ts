@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ROCPService } from '../services/rocp.service';
 
-
 @Component({
   selector: 'app-delete',
   templateUrl: './delete.component.html',
@@ -52,7 +51,6 @@ export class DeleteComponent implements OnInit {
 
     }
   }
-
     getTodosEc2(): any {
     this.rocp.getTodos().subscribe(
       response => {

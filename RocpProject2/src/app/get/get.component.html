@@ -1,6 +1,6 @@
 <fieldset style="border:1px solid #999; border-radius:8px; padding:20px;">
     <legend style="border:1px solid">Retrieve your Todos</legend>
-    ` <div *ngIf="statusCode">
+    <div *ngIf="statusCode">
         <div *ngIf="statusCode === 200" class="alert alert-success alert-dismissible fade show" role="alert">
             Successfully retrieved all available Todos
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -38,8 +38,6 @@
             </button>
         </div>
     </div>
-
-
     <div>
         <button type="button" id="position_button" class="btn btn-primary" (click)="getTodosEc2()">Get Todos</button>
     </div>
@@ -86,12 +84,18 @@
             </thead>
             <tbody>
                 <tr *ngFor='let temp of filteredData'>
+<<<<<<< HEAD
+=======
                 
+>>>>>>> 32d569fba8f0ec837ce5736d2c253c78175e8ba9
                         <td> {{ temp.id}} </td>
                         <td> {{ temp.title }} </td>
                         <td> {{ temp.createdOn}}</td>
                         <td> {{ temp.completed}}</td>
+<<<<<<< HEAD
+=======
                     
+>>>>>>> 32d569fba8f0ec837ce5736d2c253c78175e8ba9
                 </tr>
             </tbody>
         </table>
