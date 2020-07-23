@@ -30,16 +30,18 @@ export class UpdatetaskComponent implements OnInit {
     const idValue = todosUpdatetask1.get('id').value;
     const titleValue = todosUpdatetask1.get('title').value;
     const form = JSON.stringify(todosUpdatetask1.value);
-    this.todosUpdatetask.reset({});
+    
     this.statusCode = 0;
      // tslint:disable-next-line: triple-equals
     if (idValue == '' || idValue == null)
       {
           alert ('Please enter a valid Task ID')
+          this.todosUpdatetask.reset({});
       }
       else if (isNaN(Number(idValue))){
     // else if (isNaN(parseFloat(idValue))){
           alert ('Task ID needs to be a number');
+          this.todosUpdatetask.reset({});
 
         }
         // tslint:disable-next-line: triple-equals
@@ -48,6 +50,7 @@ export class UpdatetaskComponent implements OnInit {
           alert ('Please enter new Task ')
         }
     else{
+          this.todosUpdatetask.reset({});
           this.rocp.getTodosByIDforUpdate(idValue).subscribe(
               responsebyId => {
           this.rocp.putTodos(form).subscribe(

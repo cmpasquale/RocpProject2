@@ -83,12 +83,12 @@
             </thead>
             <tbody>
                 <tr *ngFor='let temp of filteredData'>
-                  <ng-template [ngIf]="completedstatus">
+                
                         <td> {{ temp.id}} </td>
                         <td> {{ temp.title }} </td>
                         <td> {{ temp.createdOn}}</td>
                         <td> {{ temp.completed}}</td>
-                    </ng-template>
+                    
                 </tr>
             </tbody>
         </table>
