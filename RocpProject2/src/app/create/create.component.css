@@ -23,6 +23,7 @@ fieldset {
 input, label {
     float:left;
      top:25px;
+     width: 225px;
 }
 
   
