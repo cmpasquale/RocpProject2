@@ -43,7 +43,7 @@
   <div > 
     <form [formGroup] = "todos"  >
       <div ><label> Enter New Task </label>
-        <input type = "text"  class= "form-Control" placeholder="Enter Task Title" formControlName="title">
+        <input type = "text"  class= "form-Control" placeholder="Enter Task Title(Required)" formControlName="title" required>
       </div>
         <div>
           <button type="button" id = "position_button" class="btn btn-primary" (click)='postTodoEc2(todos)'>Create Todo</button>

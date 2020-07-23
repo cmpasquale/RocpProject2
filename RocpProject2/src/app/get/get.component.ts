@@ -17,7 +17,7 @@ export class GetComponent implements OnInit {
   attrtodosId = '';
   statusCode: number;
   data: any[];
-  data1:any[];
+  data1: any[];
   filteredData: ITasks[];
   attrtodoFilter = '';
   isChecked: boolean = false;
@@ -38,7 +38,7 @@ export class GetComponent implements OnInit {
   }
 
 
-  startFilter () {
+  startFilter() {
     if (this.isChecked) {
       console.log(this.isChecked);
       this.filteredData = this.performFilter(this.attrtodoFilter)
@@ -48,7 +48,7 @@ export class GetComponent implements OnInit {
       this.filteredData = this.performFilterAll(this.attrtodoFilter)
     }
   }
-  
+
 
   performFilter(filterBy: string): ITasks[] {
     filterBy = filterBy.toLocaleLowerCase();
@@ -71,7 +71,7 @@ export class GetComponent implements OnInit {
     this.attrtodosId = temp;
   }
 
- 
+
 
   getTodosEc2() {
     this.attrtodoFilter = '';
