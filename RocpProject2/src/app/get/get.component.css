@@ -43,3 +43,23 @@ fieldset {
     height: 40px;
     width: 125px;
 }
+
+
+
+ label{
+    position:relative;
+    top:22px;
+    left: -120px;
+    font-size: 20px;
+    height: 40px;
+    width: 125px;
+}
+
+.checkBox{
+    position:relative;
+    top:-22px;
+    left:-20px;
+    font-size: 20px;
+    height: 20px;
+    width: 52px;
+}
