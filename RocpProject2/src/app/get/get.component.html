@@ -61,7 +61,7 @@
                     <input type='text' [(ngModel)]='todoFilter'>
                     <div>
                         <label>Completed?</label>
-                        <input type="checkbox" class="checkBox" name="myData" [(ngModel)]="isChecked">
+                        <input type="checkbox" class="checkBox" name="myData" [(ngModel)]="isChecked" (change) ="startFilter()">
 
                     </div>
 
