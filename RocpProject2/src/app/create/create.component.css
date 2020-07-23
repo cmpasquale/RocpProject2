@@ -13,7 +13,6 @@ fieldset {
   
   
   label {
-  
     top:25px;
     width:180px;
     clear:left;
@@ -23,14 +22,12 @@ fieldset {
 
 input, label {
     float:left;
-   
-    top:25px;
+     top:25px;
 }
 
   
   
   #position_button{
-    
     top:80px;
     left: -170px;
     font-size: 20px;
