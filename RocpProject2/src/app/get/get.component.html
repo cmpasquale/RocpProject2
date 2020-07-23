@@ -53,20 +53,26 @@
     <div class='panel panel-primary' [hidden]="isHidden">
         <div class='panel-body'>
             <div class='row'>
-                <div class='col-md-3'>
-                    Filter Tasks By:
+                <div class='col-md-3' style="font-weight:bold;">
+                    Filter Tasks By Title:
                 </div>
                 <div class='col-md-4'>
 
                     <input type='text' [(ngModel)]='todoFilter'>
-                    <input type="checkbox" id= "chk_box" ng-model="completionstatus" 
-                    ng-true-value="'true'" ng-false-value="'false'">
+                    <div>
+                        <label>Completed?</label>
+                        <input type="checkbox" class="checkBox" name="myData" [(ngModel)]="isChecked">
+
+                    </div>
+
+
 
                 </div>
             </div>
         </div>
     </div>
-    <div class='table-responsive'>
+
+    <div class = 'table-responsive' >
         <table class='table' *ngIf="data?.length>0">
             <thead>
                 <tr>
@@ -78,10 +84,18 @@
             </thead>
             <tbody>
                 <tr *ngFor='let temp of filteredData'>
+<<<<<<< HEAD
+=======
+                
+>>>>>>> 32d569fba8f0ec837ce5736d2c253c78175e8ba9
                         <td> {{ temp.id}} </td>
                         <td> {{ temp.title }} </td>
                         <td> {{ temp.createdOn}}</td>
                         <td> {{ temp.completed}}</td>
+<<<<<<< HEAD
+=======
+                    
+>>>>>>> 32d569fba8f0ec837ce5736d2c253c78175e8ba9
                 </tr>
             </tbody>
         </table>

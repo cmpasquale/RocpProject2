@@ -1,6 +1,6 @@
 <!-- message for Success or Error-->
- <fieldset>
-    <legend>Update Todos</legend> 
+ <fieldset style="border:1px solid #999; border-radius:8px; padding:20px;">
+    <legend style="border:1px solid">Update Todos</legend> 
 
 <div *ngIf="statusCode">
     <div *ngIf="statusCode === 200" class="alert alert-success alert-dismissible fade show" role="alert">
@@ -86,13 +86,14 @@
 
         <div class="col-sm">
             <div class="header">                          
-                <h1></h1>
+                <h1></h1><h1></h1>
                 <h1></h1><br>
             </div>
             <button type="button" class="btn btn-primary btn-lg" (click)='getTodosEc2()'>Get Todos</button>
         </div>
     </div>
 </div>
+<br>
  
 <div class='table-responsive' *ngIf="data?.length>0">
     <table class='table' >
@@ -105,7 +106,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor='let temp of data'>
+            <tr *ngFor='let temp of data1'>
                 <td> {{ temp.id}} </td>
                 <td> {{ temp.title }} </td>
                 <td> {{ temp.createdOn}}</td>
