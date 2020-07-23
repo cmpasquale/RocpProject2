@@ -16,7 +16,8 @@ export class ROCPService {
         'Access-Control-Allow-Origin': '*',
       })
     };
-    return this.httpCli.post<string[]>('http://ec2-18-217-229-99.us-east-2.compute.amazonaws.com:8080/todos', todoForm, httpHead).pipe(catchError(this.handleError));
+    return this.httpCli.post<string[]>('http://ec2-18-217-229-99.us-east-2.compute.amazonaws.com:8080/todos', todoForm, httpHead).pipe(
+      catchError(this.handleError));
   }
 
   getTodos(): Observable<string[]> {
