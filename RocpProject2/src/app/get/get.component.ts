@@ -10,6 +10,9 @@ import { ITasks } from './tasks';
   styleUrls: ['./get.component.css']
 })
 export class GetComponent implements OnInit {
+
+  constructor(private route: ActivatedRoute, private rocp: ROCPService) { }
+
   isHidden = true;
   attrtodosId = '';
   statusCode: number;
@@ -35,7 +38,17 @@ export class GetComponent implements OnInit {
   }
 
 
-
+  startFilter () {
+    if (this.isChecked) {
+      console.log(this.isChecked);
+      this.filteredData = this.performFilter(this.attrtodoFilter)
+    }
+    else {
+      console.log(this.isChecked);
+      this.filteredData = this.performFilterAll(this.attrtodoFilter)
+    }
+  }
+  
 
   performFilter(filterBy: string): ITasks[] {
     filterBy = filterBy.toLocaleLowerCase();
@@ -58,7 +71,7 @@ export class GetComponent implements OnInit {
     this.attrtodosId = temp;
   }
 
-  constructor(private route: ActivatedRoute, private rocp: ROCPService) { }
+ 
 
   getTodosEc2() {
     this.attrtodoFilter = '';
